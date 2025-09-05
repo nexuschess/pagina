@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nexus Chess - Academia de Ajedrez Premium</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Playfair Display', serif;
+        }
+        /* Agrega un padding superior para compensar el header fijo al navegar con anclas */
+        html {
+            scroll-padding-top: 88px; /* Ajusta este valor a la altura de tu header */
+        }
+        .hero-bg {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.55)), url('https://images.unsplash.com/photo-1580541832626-2a7131ee809f?q=80&w=2070&auto=format&fit=crop');
+            background-size: cover;
+            background-position: center;
+        }
+        .hero-h1 {
+            text-shadow: 0 2px 8px rgba(0,0,0,0.5);
+        }
+        .brand-gold {
+            color: #c09b5a; /* Un dorado más suave y elegante */
+        }
+        .brand-gold-bg {
+            background-color: #c09b5a;
+        }
+        .brand-gold-bg:hover {
+            background-color: #b18c4e; 
+        }
+        .brand-gold-border {
+            border-color: #c09b5a;
+        }
+        .transition-all-300 {
+            transition: all 0.3s ease-in-out;
+        }
+        .brand-name {
+            font-family: 'Playfair Display', serif;
+            font-weight: 900;
+            letter-spacing: 0.05em;
+        }
+    </style>
+</head>
+<body class="bg-white text-slate-800">
+
+    <!-- Header -->
+    <header class="bg-white/95 backdrop-blur-sm fixed w-full z-20 top-0 border-b border-slate-200">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="#inicio" class="flex items-center">
+                <!-- AQUÍ VA TU LOGO: Reemplaza la URL en el atributo 'src' con el enlace a tu imagen. -->
+                <!-- Se recomienda un logo de 40x40 píxeles para una buena visualización. -->
+                <img src="https://i.postimg.cc/PxLQFRKv/Gemini-Generated-Image-in1vgmin1vgmin1v-copia-Photoroom.png" alt="Logo de Nexus Chess" class="h-10 w-10">
+            </a>
+            <nav class="hidden md:flex space-x-8 text-sm font-semibold tracking-widest text-slate-600">
+                <a href="#inicio" class="hover:brand-gold transition-colors">INICIO</a>
+                <a href="#beneficios" class="hover:brand-gold transition-colors">BENEFICIOS</a>
+                <a href="#clases" class="hover:brand-gold transition-colors">CLASES</a>
+                <a href="#profesores" class="hover:brand-gold transition-colors">PROFESORES</a>
+                <a href="#testimonios" class="hover:brand-gold transition-colors">TESTIMONIOS</a>
+                <a href="#noticias" class="hover:brand-gold transition-colors">NOTICIAS</a>
+                <a href="#contacto" class="hover:brand-gold transition-colors">CONTACTO</a>
+            </nav>
+            <a href="#contacto" class="hidden md:inline-block bg-slate-900 text-white font-bold text-sm py-3 px-6 rounded-md transition-colors hover:bg-slate-700">
+                Inscríbete Ahora
+            </a>
+        </div>
+    </header>
+
+    <main>
+        <!-- Sección Hero -->
+        <section id="inicio" class="hero-bg h-screen flex items-center justify-center text-center">
+            <div class="container mx-auto px-6">
+                <h1 class="hero-h1 text-5xl md:text-7xl lg:text-8xl font-black text-white">
+                    Desarrolla el Genio <span class="brand-gold">Estratega</span>
+                </h1>
+                <p class="mt-6 text-lg md:text-xl text-gray-200 max-w-3xl mx-auto leading-relaxed">
+                    En Nexus Chess, ofrecemos un ambiente seguro y estimulante donde su hijo puede transformar su potencial en maestría.
+                </p>
+                <a href="#clases" class="mt-10 inline-block brand-gold-bg text-white font-bold py-4 px-10 rounded-md text-lg uppercase tracking-widest transition-all-300 hover:scale-105 hover:shadow-xl">
+                    Conoce Nuestras Clases
+                </a>
+            </div>
+        </section>
+
+        <!-- Sección Beneficios -->
+        <section id="beneficios" class="py-28 bg-gray-50">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-16 max-w-3xl mx-auto">
+                    <h2 class="text-4xl md:text-5xl font-bold text-slate-900">El Arte de Pensar Adelante</h2>
+                    <p class="text-slate-600 mt-4 text-lg leading-relaxed">El ajedrez es una herramienta poderosa para el desarrollo intelectual y personal. Fomenta habilidades que duran toda la vida.</p>
+                </div>
+                <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                    <!-- Tarjeta Beneficio 1 -->
+                    <div class="bg-white p-8 rounded-lg text-center shadow-lg border-t-4 brand-gold-border">
+                        <h3 class="text-2xl font-bold mb-3 text-slate-800">Concentración Profunda</h3>
+                        <p class="text-slate-600 leading-relaxed">Mejora la capacidad de enfocarse intensamente, una habilidad clave para el éxito académico y profesional.</p>
+                    </div>
+                    <!-- Tarjeta Beneficio 2 -->
+                    <div class="bg-white p-8 rounded-lg text-center shadow-lg border-t-4 brand-gold-border">
+                        <h3 class="text-2xl font-bold mb-3 text-slate-800">Pensamiento Lógico</h3>
+                        <p class="text-slate-600 leading-relaxed">Desarrolla el razonamiento, la planificación y la resolución de problemas complejos de manera estructurada.</p>
+                    </div>
+                    <!-- Tarjeta Beneficio 3 -->
+                    <div class="bg-white p-8 rounded-lg text-center shadow-lg border-t-4 brand-gold-border">
+                        <h3 class="text-2xl font-bold mb-3 text-slate-800">Toma de Decisiones</h3>
+                        <p class="text-slate-600 leading-relaxed">Enseña a evaluar opciones, considerar consecuencias y tomar decisiones seguras bajo presión.</p>
+                    </div>
+                    <!-- Tarjeta Beneficio 4 -->
+                    <div class="bg-white p-8 rounded-lg text-center shadow-lg border-t-4 brand-gold-border">
+                        <h3 class="text-2xl font-bold mb-3 text-slate-800">Paciencia y Creatividad</h3>
+                        <p class="text-slate-600 leading-relaxed">Fomenta la perseverancia para encontrar soluciones originales y la paciencia para ejecutar un plan.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Sección Cita -->
+        <section class="py-28 bg-white">
+            <div class="container mx-auto px-6 text-center">
+                <blockquote class="max-w-4xl mx-auto">
+                    <p class="text-3xl md:text-4xl italic text-slate-700 leading-relaxed">"El ajedrez es un elixir que alarga la vida, un culto a la sabiduría y un canto a la virtud."</p>
+                    <footer class="mt-6 text-2xl brand-gold">- Anónimo</footer>
+                </blockquote>
+            </div>
+        </section>
+
+        <!-- Sección Clases -->
+        <section id="clases" class="py-28 bg-gray-50">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-16 max-w-3xl mx-auto">
+                    <h2 class="text-4xl md:text-5xl font-bold text-slate-900">Programas de Excelencia</h2>
+                    <p class="text-slate-600 mt-4 text-lg leading-relaxed">Ofrecemos dos modalidades de clase diseñadas para maximizar el potencial de cada estudiante, desde principiantes hasta jugadores avanzados.</p>
+                </div>
+                <div class="flex flex-wrap justify-center items-stretch gap-10">
+                    <!-- Tarjeta Clases Grupales -->
+                    <div class="bg-white rounded-lg overflow-hidden max-w-md w-full shadow-2xl transition-all-300 hover:-translate-y-2 flex flex-col">
+                        <div class="p-10 flex-grow">
+                            <h3 class="text-3xl font-bold brand-gold mb-4">Clases Grupales</h3>
+                            <p class="text-slate-600 mb-8 leading-relaxed">Un entorno dinámico para aprender y socializar. Ideal para desarrollar el trabajo en equipo y la deportividad mientras se compite amistosamente.</p>
+                            <ul class="text-left space-y-3 text-slate-700">
+                                <li class="flex items-center"><svg class="w-5 h-5 brand-gold mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>Aprendizaje colaborativo y divertido</li>
+                                <li class="flex items-center"><svg class="w-5 h-5 brand-gold mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>Desarrollo de habilidades sociales</li>
+                                <li class="flex items-center"><svg class="w-5 h-5 brand-gold mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>Práctica con diversos estilos de juego</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <!-- Tarjeta Clases Individuales -->
+                    <div class="bg-white rounded-lg overflow-hidden max-w-md w-full shadow-2xl transition-all-300 hover:-translate-y-2 flex flex-col">
+                        <div class="p-10 flex-grow">
+                            <h3 class="text-3xl font-bold brand-gold mb-4">Clases Individuales</h3>
+                            <p class="text-slate-600 mb-8 leading-relaxed">Un programa 100% personalizado para acelerar el progreso. Nos enfocamos en las fortalezas y áreas de oportunidad de cada estudiante.</p>
+                            <ul class="text-left space-y-3 text-slate-700">
+                                <li class="flex items-center"><svg class="w-5 h-5 brand-gold mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>Atención 100% personalizada</li>
+                                <li class="flex items-center"><svg class="w-5 h-5 brand-gold mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>Plan de estudio a la medida</li>
+                                <li class="flex items-center"><svg class="w-5 h-5 brand-gold mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>Máximo aprovechamiento del tiempo</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sección Profesores -->
+        <section id="profesores" class="py-28 bg-white">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-16 max-w-3xl mx-auto">
+                    <h2 class="text-4xl md:text-5xl font-bold text-slate-900">Conoce a Nuestros Maestros</h2>
+                    <p class="text-slate-600 mt-4 text-lg leading-relaxed">Nuestros instructores son jugadores experimentados y educadores apasionados, dedicados a cultivar el talento de cada estudiante.</p>
+                </div>
+                <div class="grid md:grid-cols-2 gap-12 lg:gap-16 justify-center max-w-5xl mx-auto">
+                    <!-- Tarjeta Profesor 1 -->
+                    <div class="bg-gray-50 p-8 rounded-lg text-center shadow-lg border-b-4 brand-gold-border flex flex-col items-center">
+                        <img src="https://placehold.co/150x150/e2e8f0/334155?text=Maestro" alt="Foto de un maestro de ajedrez" class="w-36 h-36 rounded-full mx-auto mb-6 object-cover border-4 border-white shadow-md">
+                        <h3 class="text-2xl font-bold mb-2 text-slate-800">Andrei Mendez</h3>
+                        <p class="font-semibold brand-gold mb-3">Gran Maestro Internacional</p>
+                        <p class="text-slate-600 leading-relaxed text-left">Con más de 15 años de experiencia en torneos de élite, Anish se especializa en aperturas complejas y estrategia posicional. Su enfoque analítico ayuda a los estudiantes a comprender la profundidad del juego.</p>
+                    </div>
+                    <!-- Tarjeta Profesor 2 -->
+                    <div class="bg-gray-50 p-8 rounded-lg text-center shadow-lg border-b-4 brand-gold-border flex flex-col items-center">
+                        <img src="https://placehold.co/150x150/e2e8f0/334155?text=Maestro" alt="Foto de una maestra de ajedrez" class="w-36 h-36 rounded-full mx-auto mb-6 object-cover border-4 border-white shadow-md">
+                        <h3 class="text-2xl font-bold mb-2 text-slate-800">Giomar Romero</h3>
+                        <p class="font-semibold brand-gold mb-3">Gran Maestro</p>
+                        <p class="text-slate-600 leading-relaxed text-left">Considerada la mejor jugadora de ajedrez de la historia, Judit inspira con su estilo de ataque dinámico y su profunda comprensión táctica. Sus clases se centran en la creatividad y la confianza en el tablero.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Sección Testimonios -->
+        <section id="testimonios" class="py-28 bg-gray-50">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-16 max-w-3xl mx-auto">
+                    <h2 class="text-4xl md:text-5xl font-bold text-slate-900">Lo que Dicen Nuestros Alumnos</h2>
+                    <p class="text-slate-600 mt-4 text-lg leading-relaxed">Historias de éxito y crecimiento de la mano de nuestros maestros que validan nuestra metodología de enseñanza.</p>
+                </div>
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Tarjeta Testimonio 1 -->
+                    <div class="bg-white p-8 rounded-lg text-center shadow-lg border-t-4 brand-gold-border flex flex-col items-center transition-all-300 hover:-translate-y-2">
+                         <img src="https://placehold.co/120x120/e2e8f0/334155?text=Alumno" alt="Foto de Alumno Carlos Vega" class="w-28 h-28 rounded-full mx-auto mb-6 object-cover border-4 border-white shadow-md">
+                         <blockquote class="text-slate-600 italic leading-relaxed mb-4 flex-grow">
+                             "Nexus Chess no solo me enseñó a jugar mejor, sino que me enseñó a pensar de una manera completamente nueva. ¡Estoy más concentrado en la escuela y más seguro de mí mismo!"
+                         </blockquote>
+                         <footer class="font-bold text-slate-800 text-lg mt-4">Carlos Vega</footer>
+                    </div>
+                    <!-- Tarjeta Testimonio 2 -->
+                    <div class="bg-white p-8 rounded-lg text-center shadow-lg border-t-4 brand-gold-border flex flex-col items-center transition-all-300 hover:-translate-y-2">
+                         <img src="https://placehold.co/120x120/e2e8f0/334155?text=Alumna" alt="Foto de Alumna Sofía Torres" class="w-28 h-28 rounded-full mx-auto mb-6 object-cover border-4 border-white shadow-md">
+                         <blockquote class="text-slate-600 italic leading-relaxed mb-4 flex-grow">
+                            "Las clases son muy divertidas y los profesores son increíbles. He hecho muchos amigos y ahora me encanta competir en torneos. ¡Es la mejor academia!"
+                         </blockquote>
+                         <footer class="font-bold text-slate-800 text-lg mt-4">Sofía Torres</footer>
+                    </div>
+                    <!-- Tarjeta Testimonio 3 -->
+                    <div class="bg-white p-8 rounded-lg text-center shadow-lg border-t-4 brand-gold-border flex flex-col items-center transition-all-300 hover:-translate-y-2">
+                         <img src="https://placehold.co/120x120/e2e8f0/334155?text=Alumno" alt="Foto de Alumno Mateo Rojas" class="w-28 h-28 rounded-full mx-auto mb-6 object-cover border-4 border-white shadow-md">
+                         <blockquote class="text-slate-600 italic leading-relaxed mb-4 flex-grow">
+                            "Gracias a las clases individuales, mi ranking ha mejorado muchísimo en poco tiempo. El Maestro Méndez identificó mis debilidades y me ayudó a crear un plan de estudio perfecto para mí."
+                         </blockquote>
+                         <footer class="font-bold text-slate-800 text-lg mt-4">Mateo Rojas</footer>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sección Noticias -->
+        <section id="noticias" class="py-28 bg-white">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-16 max-w-3xl mx-auto">
+                    <h2 class="text-4xl md:text-5xl font-bold text-slate-900">Últimas Noticias y Eventos</h2>
+                    <p class="text-slate-600 mt-4 text-lg leading-relaxed">Mantente al día con los torneos, logros de nuestros estudiantes y artículos de interés del mundo del ajedrez.</p>
+                </div>
+                <div class="text-center">
+                    <!-- AQUÍ VA EL ENLACE A TU BLOG: Reemplaza la URL '#' en el atributo 'href' con el enlace a tu blog o página de noticias. -->
+                    <a href="https://thezugzwangblog.com/" target="_blank" class="inline-flex items-center brand-gold-bg text-white font-bold py-4 px-10 rounded-md text-lg uppercase tracking-widest transition-all-300 hover:scale-105 hover:shadow-xl">
+                        Visitar Blog de Noticias
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sección Contacto -->
+        <section id="contacto" class="py-28 bg-gray-50">
+            <div class="container mx-auto px-6 text-center">
+                <h2 class="text-4xl md:text-5xl font-bold text-slate-900">Inicie el Viaje Hacia la Maestría</h2>
+                <p class="text-slate-600 mt-4 mb-10 max-w-2xl mx-auto text-lg leading-relaxed">
+                    Contáctenos para recibir más información sobre nuestros programas y agendar una clase de evaluación. Será un placer guiar a su hijo en el fascinante mundo del ajedrez.
+                </p>
+                <a href="https://wa.me/51983290098" target="_blank" class="inline-flex items-center brand-gold-bg text-white font-bold py-4 px-10 rounded-md text-lg uppercase tracking-widest transition-all-300 hover:scale-105 hover:shadow-xl">
+                     <svg class="w-6 h-6 mr-3" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 16 16">
+                           <path d="M13.601 2.326A7.854 7.854 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.933 7.933 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.898 7.898 0 0 0 13.6 2.326zM7.994 14.521a6.573 6.573 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.557 6.557 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592zm3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.729.729 0 0 0-.529.247c-.182.198-.691.677-.691 1.654 0 .977.71 1.916.81 2.049.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232z"/>
+                         </svg>
+                    Contactar por WhatsApp
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-slate-900 py-10">
+        <div class="container mx-auto px-6 text-center text-slate-400 text-sm">
+            <p>&copy; 2024 Nexus Chess. Todos los derechos reservados.</p>
+            <p class="mt-2">Forjando la próxima generación de estrategas.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
