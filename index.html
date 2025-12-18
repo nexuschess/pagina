@@ -3,404 +3,415 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- TITULO DE LA PÁGINA -->
     <title>Nexus Chess - Academia de Ajedrez Premium</title>
     
-    <!-- FAVICON: Esto es lo que cambia el planeta gris por tu logo -->
     <link rel="icon" type="image/png" href="https://i.postimg.cc/y6GjPBbn/LOGO-PNG-NEXUS-CHESS-sin-letras.png">
     
     <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    
     <style>
         body {
             font-family: 'Inter', sans-serif;
             -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
         }
         h1, h2, h3, h4, h5, h6 {
             font-family: 'Playfair Display', serif;
         }
+        
+        /* Textura sutil de ajedrez para fondos */
+        .bg-chess-pattern {
+            background-image: radial-gradient(#c09b5a 0.5px, transparent 0.5px), radial-gradient(#c09b5a 0.5px, #f9fafb 0.5px);
+            background-size: 20px 20px;
+            background-position: 0 0, 10px 10px;
+            opacity: 0.4;
+        }
+
         .hero-bg {
-            background-image: linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.55)), url('https://images.unsplash.com/photo-1580541832626-2a7131ee809f?q=80&w=2070&auto=format&fit=crop');
+            background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1580541832626-2a7131ee809f?q=80&w=2070&auto=format&fit=crop');
             background-size: cover;
             background-position: center;
+            background-attachment: fixed; /* Efecto Parallax */
         }
-        .hero-h1 {
-            text-shadow: 0 2px 8px rgba(0,0,0,0.5);
+
+        /* Botón Premium con Brillo Animado */
+        .btn-shine {
+            position: relative;
+            overflow: hidden;
         }
-        .brand-gold {
-            color: #c09b5a; /* Dorado elegante */
+        .btn-shine::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -60%;
+            width: 20%;
+            height: 200%;
+            background: rgba(255, 255, 255, 0.3);
+            transform: rotate(30deg);
+            transition: none;
+            animation: shine 4s infinite;
         }
+        @keyframes shine {
+            0% { left: -60%; }
+            20% { left: 120%; }
+            100% { left: 120%; }
+        }
+
         .brand-gold-bg {
-            background-color: #c09b5a;
+            background: linear-gradient(135deg, #c09b5a 0%, #b18c4e 100%);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         }
+        
         .brand-gold-bg:hover {
-            background-color: #b18c4e; 
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(192, 155, 90, 0.4);
         }
-        .brand-gold-border {
-            border-color: #c09b5a;
-        }
+
         .text-gold-gradient {
-            background: linear-gradient(to right, #c09b5a, #eebb77);
+            background: linear-gradient(to right, #c09b5a, #f3d299);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
-        .transition-all-300 {
-            transition: all 0.3s ease-in-out;
+
+        .glass-header {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
         }
-        /* Animación suave para el botón de WhatsApp flotante */
-        @keyframes pulse-soft {
-            0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); }
-            70% { box-shadow: 0 0 0 15px rgba(37, 211, 102, 0); }
-            100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
+
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-15px); }
+            100% { transform: translateY(0px); }
         }
-        .whatsapp-float {
-            animation: pulse-soft 2s infinite;
-        }
-        /* Estilos para el Modal */
-        .modal-overlay {
-            background-color: rgba(0, 0, 0, 0.7);
-            backdrop-filter: blur(4px);
-        }
+        .float-anim { animation: float 6s ease-in-out infinite; }
     </style>
 </head>
 <body class="bg-white text-slate-800">
 
-    <!-- Header -->
-    <header class="bg-white/95 backdrop-blur-sm fixed w-full z-20 top-0 border-b border-slate-200">
+    <header class="glass-header fixed w-full z-50 top-0 border-b border-slate-100">
         <div class="container mx-auto px-6 py-4 flex justify-between items-center">
             <a href="#" class="flex items-center space-x-3">
-                <!-- LOGO PRINCIPAL ACTUALIZADO -->
-                <img src="https://i.postimg.cc/y6GjPBbn/LOGO-PNG-NEXUS-CHESS-sin-letras.png" alt="Logo Nexus Chess" class="h-12 w-auto object-contain">
-                
-                <span class="text-2xl font-bold tracking-wider text-slate-900">NEXUS CHESS</span>
+                <img src="https://i.postimg.cc/y6GjPBbn/LOGO-PNG-NEXUS-CHESS-sin-letras.png" alt="Logo" class="h-10 w-auto">
+                <span class="text-xl font-bold tracking-tighter text-slate-900">NEXUS CHESS</span>
             </a>
-            <nav class="hidden md:flex space-x-10 text-sm font-semibold tracking-widest text-slate-600">
-                <a href="#inicio" class="hover:brand-gold transition-colors">INICIO</a>
-                <a href="#beneficios" class="hover:brand-gold transition-colors">BENEFICIOS</a>
-                <a href="#clases" class="hover:brand-gold transition-colors">CLASES</a>
-                <a href="#contacto" class="hover:brand-gold transition-colors">CONTACTO</a>
+            <nav class="hidden md:flex space-x-8 text-xs font-bold tracking-widest text-slate-500">
+                <a href="#inicio" class="hover:text-[#c09b5a] transition-colors">INICIO</a>
+                <a href="#beneficios" class="hover:text-[#c09b5a] transition-colors">BENEFICIOS</a>
+                <a href="#clases" class="hover:text-[#c09b5a] transition-colors">PROGRAMAS</a>
+                <a href="#contacto" class="hover:text-[#c09b5a] transition-colors">CONTACTO</a>
             </nav>
-            <button onclick="openLevelModal('Inscripción General')" class="hidden md:inline-block bg-slate-900 text-white font-bold text-sm py-3 px-6 rounded-md transition-colors hover:bg-slate-700">
-                Inscríbete Ahora
+            <button onclick="openLevelModal('Inscripción Rápida')" class="btn-shine bg-slate-900 text-white text-xs font-bold py-3 px-6 rounded-full hover:bg-slate-800 transition-all">
+                SOLICITAR CUPO
             </button>
         </div>
     </header>
 
     <main>
-        <!-- Sección Hero -->
-        <section id="inicio" class="hero-bg h-screen flex items-center justify-center text-center">
-            <div class="container mx-auto px-6">
-                <h1 class="hero-h1 text-5xl md:text-7xl lg:text-8xl font-black text-white">
-                    Desarrolla el Genio <span class="text-gold-gradient">Estratega</span>
+        <section id="inicio" class="hero-bg h-screen flex items-center justify-center text-center relative overflow-hidden">
+            <div class="container mx-auto px-6 z-10" data-aos="fade-up" data-aos-duration="1000">
+                <span class="text-[#c09b5a] font-bold tracking-[0.3em] text-sm mb-4 block">EXCELENCIA EN AJEDREZ</span>
+                <h1 class="text-5xl md:text-8xl font-black text-white leading-tight">
+                    Domina el <br><span class="text-gold-gradient italic font-serif">Arte del Juego</span>
                 </h1>
-                <p class="mt-6 text-lg md:text-xl text-gray-200 max-w-3xl mx-auto leading-relaxed">
-                    En Nexus Chess, ofrecemos un ambiente seguro y estimulante donde su hijo puede transformar su potencial en maestría.
+                <p class="mt-8 text-lg text-gray-300 max-w-2xl mx-auto font-light tracking-wide">
+                    Formamos mentes estratégicas a través de un sistema de enseñanza de alto rendimiento para niños y jóvenes.
                 </p>
-                <button onclick="openLevelModal('Información General')" class="mt-10 inline-block brand-gold-bg text-white font-bold py-4 px-10 rounded-md text-lg uppercase tracking-widest transition-all-300 hover:scale-105 hover:shadow-xl cursor-pointer">
-                    Contáctanos Hoy
-                </button>
+                <div class="mt-12 flex flex-col md:flex-row gap-4 justify-center">
+                    <button onclick="openLevelModal('Hero')" class="brand-gold-bg text-white font-bold py-5 px-12 rounded-full text-sm uppercase tracking-widest">
+                        Empezar Ahora
+                    </button>
+                    <a href="#beneficios" class="py-5 px-12 rounded-full text-sm font-bold text-white border border-white/30 hover:bg-white/10 transition-all">
+                        Ver Metodología
+                    </a>
+                </div>
+            </div>
+            <div class="absolute bottom-10 right-10 opacity-20 hidden lg:block float-anim">
+                <img src="https://i.postimg.cc/y6GjPBbn/LOGO-PNG-NEXUS-CHESS-sin-letras.png" class="w-64 grayscale brightness-200" alt="">
             </div>
         </section>
 
-        <!-- Sección Beneficios -->
-        <section id="beneficios" class="py-24 bg-gray-50">
+        <section id="beneficios" class="py-32 bg-white relative">
             <div class="container mx-auto px-6">
-                <div class="text-center mb-16 max-w-3xl mx-auto">
-                    <h2 class="text-4xl md:text-5xl font-bold text-slate-900">El Arte de Pensar Adelante</h2>
-                    <p class="text-slate-600 mt-4 text-lg leading-relaxed">El ajedrez es una herramienta poderosa para el desarrollo intelectual y personal. Fomenta habilidades que duran toda la vida.</p>
+                <div class="text-center mb-20" data-aos="fade-up">
+                    <h2 class="text-4xl md:text-6xl font-black text-slate-900 mb-6">¿Por qué Nexus Chess?</h2>
+                    <div class="w-24 h-1 brand-gold-bg mx-auto"></div>
                 </div>
-                <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-                    <!-- Tarjeta Beneficio 1 -->
-                    <div class="bg-white p-8 rounded-lg text-center shadow-lg border-t-4 brand-gold-border group hover:shadow-2xl transition-all-300">
-                        <div class="mb-4 inline-block p-3 rounded-full bg-slate-50 text-slate-800 group-hover:bg-slate-900 group-hover:text-white transition-colors">
-                            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path></svg>
+                <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-10">
+                    <div class="p-10 rounded-2xl bg-white border border-slate-100 shadow-sm hover:shadow-2xl transition-all duration-500 group" data-aos="fade-up" data-aos-delay="100">
+                        <div class="w-16 h-16 mb-8 flex items-center justify-center rounded-2xl bg-slate-50 text-[#c09b5a] group-hover:brand-gold-bg group-hover:text-white transition-all duration-500">
+                            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
                         </div>
-                        <h3 class="text-2xl font-bold mb-3 text-slate-800">Concentración</h3>
-                        <p class="text-slate-600 leading-relaxed">Mejora la capacidad de enfocarse intensamente, clave para el éxito académico.</p>
+                        <h3 class="text-2xl font-bold mb-4">Agilidad Mental</h3>
+                        <p class="text-slate-500 leading-relaxed text-sm">Entrenamos el cerebro para procesar información compleja y tomar decisiones en segundos.</p>
                     </div>
-                    <!-- Tarjeta Beneficio 2 -->
-                    <div class="bg-white p-8 rounded-lg text-center shadow-lg border-t-4 brand-gold-border group hover:shadow-2xl transition-all-300">
-                         <div class="mb-4 inline-block p-3 rounded-full bg-slate-50 text-slate-800 group-hover:bg-slate-900 group-hover:text-white transition-colors">
-                            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.384-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"></path></svg>
+
+                    <div class="p-10 rounded-2xl bg-white border border-slate-100 shadow-sm hover:shadow-2xl transition-all duration-500 group" data-aos="fade-up" data-aos-delay="200">
+                        <div class="w-16 h-16 mb-8 flex items-center justify-center rounded-2xl bg-slate-50 text-[#c09b5a] group-hover:brand-gold-bg group-hover:text-white transition-all duration-500">
+                            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
                         </div>
-                        <h3 class="text-2xl font-bold mb-3 text-slate-800">Lógica</h3>
-                        <p class="text-slate-600 leading-relaxed">Desarrolla el razonamiento y la resolución de problemas estructurada.</p>
+                        <h3 class="text-2xl font-bold mb-4">Disciplina</h3>
+                        <p class="text-slate-500 leading-relaxed text-sm">El ajedrez enseña el valor del orden, el estudio constante y la paciencia estratégica.</p>
                     </div>
-                    <!-- Tarjeta Beneficio 3 -->
-                    <div class="bg-white p-8 rounded-lg text-center shadow-lg border-t-4 brand-gold-border group hover:shadow-2xl transition-all-300">
-                         <div class="mb-4 inline-block p-3 rounded-full bg-slate-50 text-slate-800 group-hover:bg-slate-900 group-hover:text-white transition-colors">
-                            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 6l3 1m0 0l-3 9a5.002 5.002 0 006.001 0M6 7l3 9M6 7l6-2m6 2l3-1m-3 1l-3 9a5.002 5.002 0 006.001 0M18 7l3 9m-3-9l-6-2m0-2v2m0 16V5m0 16H9m3 0h3"></path></svg>
+
+                    <div class="p-10 rounded-2xl bg-white border border-slate-100 shadow-sm hover:shadow-2xl transition-all duration-500 group" data-aos="fade-up" data-aos-delay="300">
+                        <div class="w-16 h-16 mb-8 flex items-center justify-center rounded-2xl bg-slate-50 text-[#c09b5a] group-hover:brand-gold-bg group-hover:text-white transition-all duration-500">
+                            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
                         </div>
-                        <h3 class="text-2xl font-bold mb-3 text-slate-800">Decisión</h3>
-                        <p class="text-slate-600 leading-relaxed">Enseña a evaluar opciones y tomar decisiones seguras bajo presión.</p>
+                        <h3 class="text-2xl font-bold mb-4">Enfoque</h3>
+                        <p class="text-slate-500 leading-relaxed text-sm">Eliminamos las distracciones externas para alcanzar un estado de concentración profunda.</p>
                     </div>
-                    <!-- Tarjeta Beneficio 4 -->
-                    <div class="bg-white p-8 rounded-lg text-center shadow-lg border-t-4 brand-gold-border group hover:shadow-2xl transition-all-300">
-                         <div class="mb-4 inline-block p-3 rounded-full bg-slate-50 text-slate-800 group-hover:bg-slate-900 group-hover:text-white transition-colors">
-                            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.828 14.828a4 4 0 01-5.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+
+                    <div class="p-10 rounded-2xl bg-white border border-slate-100 shadow-sm hover:shadow-2xl transition-all duration-500 group" data-aos="fade-up" data-aos-delay="400">
+                        <div class="w-16 h-16 mb-8 flex items-center justify-center rounded-2xl bg-slate-50 text-[#c09b5a] group-hover:brand-gold-bg group-hover:text-white transition-all duration-500">
+                            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/></svg>
                         </div>
-                        <h3 class="text-2xl font-bold mb-3 text-slate-800">Carácter</h3>
-                        <p class="text-slate-600 leading-relaxed">Fomenta la paciencia, la deportividad y el respeto por el rival.</p>
+                        <h3 class="text-2xl font-bold mb-4">Comunidad</h3>
+                        <p class="text-slate-500 leading-relaxed text-sm">Nuestros alumnos forman vínculos con otros jóvenes apasionados por el crecimiento intelectual.</p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Sección Cita -->
-        <section class="py-24 brand-gold-bg text-white">
-            <div class="container mx-auto px-6 text-center">
-                <blockquote class="max-w-4xl mx-auto">
-                    <svg class="w-12 h-12 mx-auto mb-6 opacity-30" fill="currentColor" viewBox="0 0 32 32"><path d="M10 8v8h6v10h-16v-10h6v-8h4zm22 0v8h6v10h-16v-10h6v-8h4z"></path></svg>
-                    <p class="text-3xl md:text-4xl font-serif italic leading-relaxed">«El ajedrez es un elixir que alarga la vida;
-es un culto a la sabiduría y un canto a la virtud.» </p>
-                    <footer class="mt-6 text-xl font-bold opacity-80">- Anónimo</footer>
-                </blockquote>
+        <section class="py-24 bg-slate-50 relative overflow-hidden">
+            <div class="absolute inset-0 bg-chess-pattern"></div>
+            <div class="container mx-auto px-6 relative z-10">
+                <div class="text-center mb-16" data-aos="fade-up">
+                    <h2 class="text-4xl font-bold text-slate-900">Voces de Nuestra Academia</h2>
+                </div>
+                <div class="grid md:grid-cols-3 gap-8">
+                    <div class="bg-white p-8 rounded-2xl shadow-sm" data-aos="zoom-in" data-aos-delay="100">
+                        <div class="flex text-yellow-400 mb-4">
+                            <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+                        </div>
+                        <p class="text-slate-600 italic mb-6">"El cambio en la concentración de mi hijo ha sido increíble. Ahora es mucho más analítico en sus tareas escolares."</p>
+                        <div class="flex items-center space-x-4">
+                            <div class="w-10 h-10 rounded-full bg-slate-200"></div>
+                            <span class="font-bold text-sm">Familia Rodríguez</span>
+                        </div>
+                    </div>
+                    <div class="bg-white p-8 rounded-2xl shadow-sm" data-aos="zoom-in" data-aos-delay="200">
+                        <div class="flex text-yellow-400 mb-4">
+                            <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+                        </div>
+                        <p class="text-slate-600 italic mb-6">"Los profesores tienen una paciencia de oro. Mi hija empezó desde cero y ahora ya compite en torneos locales."</p>
+                        <div class="flex items-center space-x-4">
+                            <div class="w-10 h-10 rounded-full bg-slate-200"></div>
+                            <span class="font-bold text-sm">Carlos M.</span>
+                        </div>
+                    </div>
+                    <div class="bg-white p-8 rounded-2xl shadow-sm" data-aos="zoom-in" data-aos-delay="300">
+                        <div class="flex text-yellow-400 mb-4">
+                            <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+                        </div>
+                        <p class="text-slate-600 italic mb-6">"Nexus no es solo una clase de ajedrez, es un club donde mi hijo se siente parte de algo grande."</p>
+                        <div class="flex items-center space-x-4">
+                            <div class="w-10 h-10 rounded-full bg-slate-200"></div>
+                            <span class="font-bold text-sm">Ana Lucía P.</span>
+                        </div>
+                    </div>
+                </div>
             </div>
         </section>
 
-        <!-- Sección Clases -->
-        <section id="clases" class="py-24 bg-gray-50">
+        <section id="clases" class="py-32 bg-white">
             <div class="container mx-auto px-6">
-                <div class="text-center mb-16 max-w-3xl mx-auto">
-                    <h2 class="text-4xl md:text-5xl font-bold text-slate-900">Nuestros Programas</h2>
-                    <p class="text-slate-600 mt-4 text-lg leading-relaxed">Diseñados meticulosamente para cada etapa del aprendizaje.</p>
-                </div>
-                <div class="flex flex-wrap justify-center items-stretch gap-8">
-                    <!-- Tarjeta Clases Grupales -->
-                    <div class="bg-white rounded-xl overflow-hidden max-w-sm w-full shadow-lg hover:shadow-2xl transition-all-300 flex flex-col group">
-                        <div class="h-2 bg-slate-200 group-hover:brand-gold-bg transition-colors"></div>
-                        <div class="p-8 flex-grow">
-                            <h3 class="text-2xl font-bold text-slate-900 mb-2">Clases Grupales</h3>
-                            <p class="text-sm text-brand-gold font-bold uppercase tracking-wider mb-6">Dinámica y Social</p>
-                            <p class="text-slate-600 mb-8 leading-relaxed">Ideal para desarrollar habilidades sociales, trabajo en equipo y competencia sana.</p>
-                            <ul class="space-y-4 mb-8">
-                                <li class="flex items-start text-slate-700 text-sm">
-                                    <svg class="w-5 h-5 brand-gold mr-3 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                                    Aprendizaje colaborativo
-                                </li>
-                                <li class="flex items-start text-slate-700 text-sm">
-                                    <svg class="w-5 h-5 brand-gold mr-3 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                                    Torneos internos
-                                </li>
-                                <li class="flex items-start text-slate-700 text-sm">
-                                    <svg class="w-5 h-5 brand-gold mr-3 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                                    Grupos por nivel
-                                </li>
-                            </ul>
+                <div class="flex flex-col md:flex-row justify-between items-end mb-16 gap-6" data-aos="fade-right">
+                    <div class="max-w-xl">
+                        <h2 class="text-4xl md:text-6xl font-black text-slate-900 mb-4">Encuentra tu Programa</h2>
+                        <p class="text-slate-500 text-lg">Metodologías adaptadas a cada edad y nivel de habilidad.</p>
+                    </div>
+                    <div class="hidden md:block">
+                        <div class="flex space-x-2">
+                            <div class="w-12 h-1 brand-gold-bg"></div>
+                            <div class="w-4 h-1 bg-slate-200"></div>
+                            <div class="w-4 h-1 bg-slate-200"></div>
                         </div>
-                        <div class="p-8 pt-0 pb-8">
-                            <button onclick="openLevelModal('Clases Grupales')" class="block w-full text-center border-2 border-slate-900 text-slate-900 font-bold py-3 rounded hover:bg-slate-900 hover:text-white transition-colors cursor-pointer">
-                                Solicitar Info
+                    </div>
+                </div>
+
+                <div class="grid md:grid-cols-2 gap-12">
+                    <div class="group relative bg-slate-900 rounded-3xl overflow-hidden h-[500px]" data-aos="fade-right">
+                        <img src="https://images.unsplash.com/photo-1529699211952-734e80c4d42b?q=80&w=2071&auto=format&fit=crop" class="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:scale-110 transition-transform duration-700" alt="">
+                        <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/40 to-transparent"></div>
+                        <div class="absolute bottom-0 p-10 w-full">
+                            <span class="inline-block px-4 py-1 rounded-full bg-[#c09b5a] text-white text-[10px] font-bold tracking-widest mb-4">SOCIAL & DINÁMICO</span>
+                            <h3 class="text-4xl font-bold text-white mb-4 font-serif">Clases Grupales</h3>
+                            <p class="text-slate-300 mb-8 max-w-sm">Aprende con otros entusiastas en un ambiente divertido y competitivo.</p>
+                            <button onclick="openLevelModal('Clases Grupales')" class="bg-white text-slate-900 px-8 py-4 rounded-full font-bold text-sm hover:bg-[#c09b5a] hover:text-white transition-all">
+                                MÁS INFORMACIÓN
                             </button>
-                            <a href="https://forms.gle/eGDoGvDHiZvXWf2i6" target="_blank" class="block w-full text-center mt-4 text-slate-500 hover:text-[#c09b5a] font-semibold text-sm transition-colors flex items-center justify-center group-hover:underline underline-offset-4">
-                                Inscríbete Aquí
-                                <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
-                            </a>
                         </div>
                     </div>
 
-                    <!-- Tarjeta Clases Individuales -->
-                    <div class="bg-white rounded-xl overflow-hidden max-w-sm w-full shadow-xl hover:shadow-2xl transition-all-300 flex flex-col group transform md:-translate-y-4">
-                        <div class="h-2 brand-gold-bg"></div>
-                        <div class="p-8 flex-grow">
-                            <div class="absolute top-0 right-0 bg-slate-900 text-white text-xs font-bold px-3 py-1 rounded-bl-lg uppercase tracking-wider">Más Popular</div>
-                            <h3 class="text-2xl font-bold text-slate-900 mb-2">Clases Individuales</h3>
-                            <p class="text-sm text-brand-gold font-bold uppercase tracking-wider mb-6">Personalizado 1 a 1</p>
-                            <p class="text-slate-600 mb-8 leading-relaxed">Atención exclusiva para acelerar el progreso y corregir debilidades específicas.</p>
-                            <ul class="space-y-4 mb-8">
-                                <li class="flex items-start text-slate-700 text-sm">
-                                    <svg class="w-5 h-5 brand-gold mr-3 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                                    Plan de estudio a medida
-                                </li>
-                                <li class="flex items-start text-slate-700 text-sm">
-                                    <svg class="w-5 h-5 brand-gold mr-3 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                                    Horarios flexibles
-                                </li>
-                                <li class="flex items-start text-slate-700 text-sm">
-                                    <svg class="w-5 h-5 brand-gold mr-3 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
-                                    Análisis profundo de partidas
-                                </li>
-                            </ul>
-                        </div>
-                         <div class="p-8 pt-0 pb-8">
-                            <button onclick="openLevelModal('Clases Individuales')" class="block w-full text-center brand-gold-bg text-white font-bold py-3 rounded hover:bg-slate-800 transition-colors shadow-lg cursor-pointer">
-                                Solicitar Info
+                    <div class="group relative bg-slate-900 rounded-3xl overflow-hidden h-[500px]" data-aos="fade-left">
+                        <img src="https://images.unsplash.com/photo-1586165368502-1bad197a6461?q=80&w=2058&auto=format&fit=crop" class="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:scale-110 transition-transform duration-700" alt="">
+                        <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/40 to-transparent"></div>
+                        <div class="absolute bottom-0 p-10 w-full">
+                            <span class="inline-block px-4 py-1 rounded-full border border-[#c09b5a] text-[#c09b5a] text-[10px] font-bold tracking-widest mb-4">PERSONALIZADO</span>
+                            <h3 class="text-4xl font-bold text-white mb-4 font-serif">Clases 1 a 1</h3>
+                            <p class="text-slate-300 mb-8 max-w-sm">Acelera tu progreso con un plan de estudio diseñado exclusivamente para ti.</p>
+                            <button onclick="openLevelModal('Clases Individuales')" class="brand-gold-bg text-white px-8 py-4 rounded-full font-bold text-sm hover:shadow-xl transition-all">
+                                AGENDAR SESIÓN
                             </button>
-                            <a href="https://forms.gle/eGDoGvDHiZvXWf2i6" target="_blank" class="block w-full text-center mt-4 text-slate-500 hover:text-[#c09b5a] font-semibold text-sm transition-colors flex items-center justify-center group-hover:underline underline-offset-4">
-                                Inscríbete Aquí
-                                <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
-                            </a>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Sección Contacto -->
-        <section id="contacto" class="py-24 bg-slate-900 text-white">
-            <div class="container mx-auto px-6 text-center">
-                <h2 class="text-4xl md:text-5xl font-bold mb-6">¿Listo para el Primer Movimiento?</h2>
-                <p class="text-slate-400 mb-10 max-w-2xl mx-auto text-lg leading-relaxed">
-                    Contáctenos para agendar una evaluación y descubrir el nivel adecuado para su hijo.
+        <section id="contacto" class="py-24 bg-slate-950 relative overflow-hidden">
+             <div class="container mx-auto px-6 text-center relative z-10" data-aos="zoom-in">
+                <h2 class="text-4xl md:text-6xl font-black text-white mb-8">¿Listo para dar el siguiente paso?</h2>
+                <p class="text-slate-400 text-lg mb-12 max-w-2xl mx-auto font-light">
+                    Únete a la academia donde los campeones se forman desde la primera jugada.
                 </p>
-                <button onclick="openLevelModal('Información de Inscripción')" class="inline-flex items-center brand-gold-bg text-white font-bold py-4 px-10 rounded-md text-lg uppercase tracking-widest transition-all-300 hover:scale-105 hover:shadow-xl hover:bg-white hover:text-slate-900 cursor-pointer">
-                     <svg class="w-6 h-6 mr-3" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 16 16">
-                        <path d="M13.601 2.326A7.854 7.854 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.933 7.933 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.898 7.898 0 0 0 13.6 2.326zM7.994 14.521a6.573 6.573 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.557 6.557 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592zm3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.729.729 0 0 0-.529.247c-.182.198-.691.677-.691 1.654 0 .977.71 1.916.81 2.049.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232z"/>
-                    </svg>
-                    Contactar por WhatsApp
-                </button>
+                <div class="flex flex-col items-center">
+                    <button onclick="openLevelModal('Contacto Final')" class="btn-shine brand-gold-bg text-white font-bold py-6 px-16 rounded-full text-lg uppercase tracking-widest mb-6">
+                        Hablar con un Asesor
+                    </button>
+                    <div class="flex items-center space-x-2 text-slate-500 text-sm">
+                        <span class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span>
+                        <span>Asesores disponibles en línea</span>
+                    </div>
+                </div>
             </div>
         </section>
     </main>
 
-    <!-- Footer -->
-    <footer class="bg-slate-950 py-12 text-slate-400 text-sm border-t border-slate-900">
-        <div class="container mx-auto px-6 flex flex-col md:flex-row justify-between items-center">
-            <div class="mb-6 md:mb-0 text-center md:text-left">
-                <span class="text-2xl font-bold tracking-wider text-white block mb-2">NEXUS CHESS</span>
-                <p>Forjando la próxima generación de estrategas.</p>
-            </div>
-            
-            <div class="text-center md:text-right">
-                <div class="flex justify-center md:justify-end space-x-6 mb-4">
-                    <a href="https://www.facebook.com/profile.php?id=61585228113082" target="_blank" class="text-slate-400 hover:text-[#1877F2] transition-colors duration-300" aria-label="Facebook">
-                        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                            <path fill-rule="evenodd" d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z" clip-rule="evenodd" />
-                        </svg>
+    <footer class="bg-white py-16 border-t border-slate-100">
+        <div class="container mx-auto px-6 grid md:grid-cols-4 gap-12">
+            <div class="col-span-2">
+                <div class="flex items-center space-x-3 mb-6">
+                    <img src="https://i.postimg.cc/y6GjPBbn/LOGO-PNG-NEXUS-CHESS-sin-letras.png" alt="" class="h-10">
+                    <span class="text-xl font-bold tracking-tighter">NEXUS CHESS</span>
+                </div>
+                <p class="text-slate-500 max-w-sm mb-8">Elevando el ajedrez a una experiencia educativa de primer nivel, enfocada en el desarrollo cognitivo y emocional.</p>
+                <div class="flex space-x-4">
+                    <a href="https://www.facebook.com/profile.php?id=61585228113082" target="_blank" class="w-10 h-10 rounded-full bg-slate-100 flex items-center justify-center hover:brand-gold-bg hover:text-white transition-all">
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z"/></svg>
                     </a>
-                    <a href="https://www.instagram.com/nexuschess/" target="_blank" class="text-slate-400 hover:text-[#E4405F] transition-colors duration-300" aria-label="Instagram">
-                        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                            <path fill-rule="evenodd" d="M12.315 2c2.43 0 2.784.013 3.808.06 1.064.049 1.791.218 2.427.465a4.902 4.902 0 011.772 1.153 4.902 4.902 0 011.153 1.772c.247.636.416 1.363.465 2.427.048 1.067.06 1.407.06 4.123v.08c0 2.643-.012 2.987-.06 4.043-.049 1.064-.218 1.791-.465 2.427a4.902 4.902 0 01-1.153 1.772 4.902 4.902 0 01-1.772 1.153c-.636.247-1.363.416-2.427.465-1.067.048-1.407.06-4.123.06h-.08c-2.643 0-2.987-.012-4.043-.06-1.064-.049-1.791-.218-2.427-.465a4.902 4.902 0 01-1.772-1.153 4.902 4.902 0 01-1.153-1.772c-.247-.636-.416-1.363-.465-2.427-.047-1.024-.06-1.379-.06-3.808v-.63c0-2.43.013-2.784.06-3.808.049-1.064.218-1.791.465-2.427a4.902 4.902 0 011.153-1.772A4.902 4.902 0 015.468 2.373c.636-.247 1.363-.416 2.427-.465C8.901 2.013 9.256 2 11.685 2h.63zm-.081 1.802h-.468c-2.456 0-2.784.011-3.807.058-.975.045-1.504.207-1.857.344-.467.182-.8.398-1.15.748-.35.35-.566.683-.748 1.15-.137.353-.3.882-.344 1.857-.047 1.023-.058 1.351-.058 3.807v.468c0 2.456.011 2.784.058 3.807.045.975.207 1.504.344 1.857.182.466.399.8.748 1.15.35.35.683.566 1.15.748.353.137.882.3 1.857.344 1.054.048 1.37.058 4.041.058h.08c2.597 0 2.917-.01 3.96-.058.976-.045 1.505-.207 1.858-.344.466-.182.8-.398 1.15-.748.35-.35.566-.683.748-1.15.137-.353.3-.882.344-1.857.048-1.055.058-1.37.058-4.041v-.08c0-2.597-.01-2.917-.058-3.96-.045-.976-.207-1.505-.344-1.858a3.097 3.097 0 00-.748-1.15 3.098 3.098 0 00-1.15-.748c-.353-.137-.882-.3-1.857-.344-1.023-.047-1.351-.058-3.807-.058zM12 6.865a5.135 5.135 0 110 10.27 5.135 5.135 0 010-10.27zm0 1.802a3.333 3.333 0 100 6.666 3.333 3.333 0 000-6.666zm5.338-3.205a1.2 1.2 0 110 2.4 1.2 1.2 0 010-2.4z" clip-rule="evenodd" />
-                        </svg>
+                    <a href="https://www.instagram.com/nexuschess/" target="_blank" class="w-10 h-10 rounded-full bg-slate-100 flex items-center justify-center hover:brand-gold-bg hover:text-white transition-all">
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 1.366.062 2.633.332 3.608 1.308.975.975 1.245 2.242 1.308 3.608.058 1.266.07 1.646.07 4.85s-.012 3.584-.07 4.85c-.062 1.366-.332 2.633-1.308 3.608-.975.975-2.242 1.245-3.608 1.308-1.266.058-1.646.07-4.85.07s-3.584-.012-4.85-.07c-1.366-.062-2.633-.332-3.608-1.308-.975-.975-1.245-2.242-1.308-3.608-.058-1.266-.07-1.646-.07-4.85s.012-3.584.07-4.85c.062-1.366.332-2.633 1.308-3.608.975-.975 2.242-1.245 3.608-1.308 1.266-.058 1.646-.07 4.85-.07M12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.668-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
                     </a>
                 </div>
-                <p class="mb-2"><strong class="text-slate-200">Email:</strong> academia.nexuschess@gmail.com</p>
-                <p>&copy; 2025 Nexus Chess. Todos los derechos reservados.</p>
+            </div>
+            <div>
+                <h4 class="font-bold mb-6">Navegación</h4>
+                <ul class="space-y-4 text-sm text-slate-500">
+                    <li><a href="#inicio" class="hover:text-slate-900 transition-colors">Inicio</a></li>
+                    <li><a href="#beneficios" class="hover:text-slate-900 transition-colors">Metodología</a></li>
+                    <li><a href="#clases" class="hover:text-slate-900 transition-colors">Programas</a></li>
+                    <li><a href="https://forms.gle/eGDoGvDHiZvXWf2i6" class="hover:text-slate-900 transition-colors">Matrícula 2025</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="font-bold mb-6">Contacto</h4>
+                <ul class="space-y-4 text-sm text-slate-500">
+                    <li>academia.nexuschess@gmail.com</li>
+                    <li>+51 983 290 098</li>
+                    <li>Trujillo, Perú</li>
+                </ul>
+            </div>
+        </div>
+        <div class="container mx-auto px-6 mt-16 pt-8 border-t border-slate-100 flex flex-col md:flex-row justify-between items-center text-xs text-slate-400">
+            <p>© 2025 Nexus Chess. Todos los derechos reservados.</p>
+            <div class="flex space-x-6 mt-4 md:mt-0">
+                <a href="#">Privacidad</a>
+                <a href="#">Términos</a>
             </div>
         </div>
     </footer>
 
-    <!-- Botón Flotante de WhatsApp -->
-    <a href="https://wa.me/51983290098" target="_blank" class="fixed bottom-6 right-6 z-40 whatsapp-float bg-[#25d366] text-white p-4 rounded-full shadow-2xl hover:bg-[#128c7e] transition-colors" title="Chatea con nosotros">
-        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-whatsapp" viewBox="0 0 16 16">
+    <a href="https://wa.me/51983290098" target="_blank" class="fixed bottom-8 right-8 z-50 bg-[#25d366] text-white w-16 h-16 rounded-full shadow-2xl flex items-center justify-center hover:scale-110 transition-transform duration-300">
+        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" viewBox="0 0 16 16">
             <path d="M13.601 2.326A7.854 7.854 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.933 7.933 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.898 7.898 0 0 0 13.6 2.326zM7.994 14.521a6.573 6.573 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.557 6.557 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592zm3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.729.729 0 0 0-.529.247c-.182.198-.691.677-.691 1.654 0 .977.71 1.916.81 2.049.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232z"/>
         </svg>
     </a>
 
-    <!-- Modal de Selección de Nivel y Modalidad -->
-    <div id="levelModal" class="fixed inset-0 z-50 hidden flex items-center justify-center modal-overlay opacity-0 transition-opacity duration-300">
-        <div class="bg-white rounded-xl shadow-2xl max-w-md w-full mx-4 overflow-hidden transform scale-95 transition-transform duration-300" id="modalContent">
-            
-            <!-- Modal Header -->
-            <div class="brand-gold-bg px-6 py-4 flex justify-between items-center">
-                <h3 id="modalTitle" class="text-white text-xl font-bold font-serif">Selecciona tu Nivel</h3>
-                <button onclick="closeModal()" class="text-white hover:text-slate-200 transition-colors">
+    <div id="levelModal" class="fixed inset-0 z-[60] hidden flex items-center justify-center modal-overlay opacity-0 transition-opacity duration-300">
+        <div class="bg-white rounded-3xl shadow-2xl max-w-md w-full mx-4 overflow-hidden transform scale-95 transition-all duration-300" id="modalContent">
+            <div class="brand-gold-bg px-8 py-6 flex justify-between items-center">
+                <h3 id="modalTitle" class="text-white text-xl font-bold font-serif italic">Tu Camino al Éxito</h3>
+                <button onclick="closeModal()" class="text-white/80 hover:text-white transition-colors">
                     <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
                 </button>
             </div>
 
-            <!-- Modal Body -->
             <div class="p-8">
-                
-                <!-- PASO 1: Selección de Nivel -->
                 <div id="stepLevel" class="block">
-                    <p class="text-slate-600 mb-6 text-center">Por favor indica el nivel de experiencia del alumno:</p>
+                    <div class="mb-8 flex justify-center space-x-2">
+                        <div class="w-8 h-1 brand-gold-bg rounded-full"></div>
+                        <div class="w-8 h-1 bg-slate-100 rounded-full"></div>
+                    </div>
+                    <p class="text-slate-600 mb-6 text-center text-sm font-medium">¿Cuál es tu nivel actual?</p>
                     <div class="space-y-4">
-                        <button onclick="goToModality('Básico')" class="w-full group relative flex items-center justify-between p-4 bg-slate-50 border border-slate-200 rounded-lg hover:border-[#c09b5a] hover:bg-orange-50 transition-all duration-300">
-                            <div class="flex items-center">
-                                 <span class="w-8 h-8 rounded-full bg-slate-200 text-slate-600 flex items-center justify-center mr-3 font-bold group-hover:bg-[#c09b5a] group-hover:text-white transition-colors">1</span>
-                                 <div class="text-left">
-                                     <span class="block font-bold text-slate-800">Básico / Iniciante</span>
-                                     <span class="text-xs text-slate-500">Aprender desde cero</span>
-                                 </div>
-                            </div>
-                            <svg class="w-5 h-5 text-slate-300 group-hover:text-[#c09b5a]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                        <button onclick="goToModality('Básico')" class="w-full group flex items-center justify-between p-5 bg-slate-50 border border-slate-100 rounded-2xl hover:border-[#c09b5a] transition-all duration-300">
+                             <span class="font-bold text-slate-800">Iniciante / Cero</span>
+                            <svg class="w-5 h-5 text-slate-300 group-hover:text-[#c09b5a] group-hover:translate-x-1 transition-all" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
                         </button>
-
-                        <button onclick="goToModality('Intermedio')" class="w-full group relative flex items-center justify-between p-4 bg-slate-50 border border-slate-200 rounded-lg hover:border-[#c09b5a] hover:bg-orange-50 transition-all duration-300">
-                            <div class="flex items-center">
-                                 <span class="w-8 h-8 rounded-full bg-slate-200 text-slate-600 flex items-center justify-center mr-3 font-bold group-hover:bg-[#c09b5a] group-hover:text-white transition-colors">2</span>
-                                 <div class="text-left">
-                                     <span class="block font-bold text-slate-800">Intermedio</span>
-                                     <span class="text-xs text-slate-500">Ya conoce tácticas</span>
-                                 </div>
-                            </div>
-                            <svg class="w-5 h-5 text-slate-300 group-hover:text-[#c09b5a]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                        <button onclick="goToModality('Intermedio')" class="w-full group flex items-center justify-between p-5 bg-slate-50 border border-slate-100 rounded-2xl hover:border-[#c09b5a] transition-all duration-300">
+                             <span class="font-bold text-slate-800">Intermedio</span>
+                            <svg class="w-5 h-5 text-slate-300 group-hover:text-[#c09b5a] group-hover:translate-x-1 transition-all" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
                         </button>
-
-                        <button onclick="goToModality('Avanzado')" class="w-full group relative flex items-center justify-between p-4 bg-slate-50 border border-slate-200 rounded-lg hover:border-[#c09b5a] hover:bg-orange-50 transition-all duration-300">
-                            <div class="flex items-center">
-                                 <span class="w-8 h-8 rounded-full bg-slate-200 text-slate-600 flex items-center justify-center mr-3 font-bold group-hover:bg-[#c09b5a] group-hover:text-white transition-colors">3</span>
-                                 <div class="text-left">
-                                     <span class="block font-bold text-slate-800">Avanzado</span>
-                                     <span class="text-xs text-slate-500">Competencia activa</span>
-                                 </div>
-                            </div>
-                            <svg class="w-5 h-5 text-slate-300 group-hover:text-[#c09b5a]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                        <button onclick="goToModality('Avanzado')" class="w-full group flex items-center justify-between p-5 bg-slate-50 border border-slate-100 rounded-2xl hover:border-[#c09b5a] transition-all duration-300">
+                             <span class="font-bold text-slate-800">Avanzado / Competidor</span>
+                            <svg class="w-5 h-5 text-slate-300 group-hover:text-[#c09b5a] group-hover:translate-x-1 transition-all" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
                         </button>
                     </div>
                 </div>
 
-                <!-- PASO 2: Selección de Modalidad -->
                 <div id="stepModality" class="hidden">
-                    <p class="text-slate-600 mb-6 text-center">¿Qué modalidad prefieres?</p>
-                    <div class="space-y-4">
-                        <button onclick="finalizeSelection('Virtual')" class="w-full group relative flex items-center justify-between p-4 bg-slate-50 border border-slate-200 rounded-lg hover:border-[#c09b5a] hover:bg-orange-50 transition-all duration-300">
-                            <div class="flex items-center">
-                                 <div class="w-8 h-8 rounded-full bg-blue-100 text-blue-600 flex items-center justify-center mr-3 font-bold group-hover:bg-[#c09b5a] group-hover:text-white transition-colors">
-                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
-                                 </div>
-                                 <div class="text-left">
-                                     <span class="block font-bold text-slate-800">Virtual</span>
-                                     <span class="text-xs text-slate-500">Clases online en vivo</span>
-                                 </div>
+                    <div class="mb-8 flex justify-center space-x-2">
+                        <div class="w-8 h-1 bg-slate-100 rounded-full"></div>
+                        <div class="w-8 h-1 brand-gold-bg rounded-full"></div>
+                    </div>
+                    <p class="text-slate-600 mb-6 text-center text-sm font-medium">¿Cómo prefieres tus clases?</p>
+                    <div class="grid grid-cols-2 gap-4">
+                        <button onclick="finalizeSelection('Virtual')" class="group p-6 bg-slate-50 border border-slate-100 rounded-2xl hover:border-[#c09b5a] transition-all text-center">
+                            <div class="w-12 h-12 rounded-full bg-white shadow-sm flex items-center justify-center mx-auto mb-3 group-hover:bg-[#c09b5a] group-hover:text-white transition-all">
+                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
                             </div>
-                            <svg class="w-5 h-5 text-slate-300 group-hover:text-[#c09b5a]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+                            <span class="font-bold text-sm">Online</span>
                         </button>
-
-                        <button onclick="finalizeSelection('Presencial')" class="w-full group relative flex items-center justify-between p-4 bg-slate-50 border border-slate-200 rounded-lg hover:border-[#c09b5a] hover:bg-orange-50 transition-all duration-300">
-                            <div class="flex items-center">
-                                 <div class="w-8 h-8 rounded-full bg-green-100 text-green-600 flex items-center justify-center mr-3 font-bold group-hover:bg-[#c09b5a] group-hover:text-white transition-colors">
-                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
-                                 </div>
-                                 <div class="text-left">
-                                     <span class="block font-bold text-slate-800">Presencial</span>
-                                     <span class="text-xs text-slate-500">En nuestras instalaciones</span>
-                                 </div>
+                        <button onclick="finalizeSelection('Presencial')" class="group p-6 bg-slate-50 border border-slate-100 rounded-2xl hover:border-[#c09b5a] transition-all text-center">
+                            <div class="w-12 h-12 rounded-full bg-white shadow-sm flex items-center justify-center mx-auto mb-3 group-hover:bg-[#c09b5a] group-hover:text-white transition-all">
+                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path></svg>
                             </div>
-                            <svg class="w-5 h-5 text-slate-300 group-hover:text-[#c09b5a]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+                            <span class="font-bold text-sm">Presencial</span>
                         </button>
                     </div>
-                    <button onclick="resetToLevel()" class="mt-6 text-sm text-slate-400 hover:text-slate-600 underline w-full text-center transition-colors">
-                        ← Volver a elegir nivel
+                    <button onclick="resetToLevel()" class="mt-8 text-xs text-slate-400 hover:text-[#c09b5a] uppercase tracking-widest font-bold w-full text-center transition-colors">
+                        ← Regresar
                     </button>
                 </div>
-
-            </div>
-            <div class="bg-gray-50 px-6 py-3 text-center text-xs text-slate-400">
-                Serás redirigido a WhatsApp
             </div>
         </div>
     </div>
 
-    <!-- Script de Funcionalidad -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
+        AOS.init({
+            duration: 800,
+            once: true,
+            easing: 'ease-out-quad'
+        });
+
+        // Tu lógica de JS para el modal se mantiene intacta
         let modal = document.getElementById('levelModal');
         let modalContent = document.getElementById('modalContent');
         let stepLevel = document.getElementById('stepLevel');
         let stepModality = document.getElementById('stepModality');
         let modalTitle = document.getElementById('modalTitle');
-        
         let currentContext = ''; 
         let selectedLevel = '';
 
         function openLevelModal(context) {
             currentContext = context;
             resetToLevel(); 
-            
             modal.classList.remove('hidden');
             setTimeout(() => {
                 modal.classList.remove('opacity-0');
@@ -413,14 +424,12 @@ es un culto a la sabiduría y un canto a la virtud.» </p>
             modal.classList.add('opacity-0');
             modalContent.classList.remove('scale-100');
             modalContent.classList.add('scale-95');
-            setTimeout(() => {
-                modal.classList.add('hidden');
-            }, 300);
+            setTimeout(() => modal.classList.add('hidden'), 300);
         }
 
         function resetToLevel() {
             selectedLevel = '';
-            modalTitle.textContent = "Selecciona tu Nivel";
+            modalTitle.textContent = "Tu Camino al Éxito";
             stepLevel.classList.remove('hidden');
             stepModality.classList.add('hidden');
         }
@@ -429,32 +438,17 @@ es un culto a la sabiduría y un canto a la virtud.» </p>
             selectedLevel = level;
             stepLevel.classList.add('hidden');
             stepModality.classList.remove('hidden');
-            modalTitle.textContent = "Elige la Modalidad";
+            modalTitle.textContent = "Elige tu Modalidad";
         }
 
         function finalizeSelection(modality) {
-            let phoneNumber = '';
-            
-            if (selectedLevel === 'Básico' && modality === 'Virtual') {
-                phoneNumber = '51983290098';
-            } else {
-                phoneNumber = '51960158276';
-            }
-
-            const message = `Hola Nexus Chess, estoy interesado en: *${currentContext}*. \nNivel: *${selectedLevel}*. \nModalidad: *${modality}*. \nQuisiera recibir más información.`;
-            
-            const url = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
-            window.open(url, '_blank');
-
+            let phoneNumber = (selectedLevel === 'Básico' && modality === 'Virtual') ? '51983290098' : '51960158276';
+            const message = `Hola Nexus Chess, vengo de la web. \n*Interés:* ${currentContext}. \n*Nivel:* ${selectedLevel}. \n*Modalidad:* ${modality}. \nQuisiera más información.`;
+            window.open(`https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`, '_blank');
             closeModal();
         }
 
-        modal.addEventListener('click', function(e) {
-            if (e.target === modal) {
-                closeModal();
-            }
-        });
+        modal.addEventListener('click', (e) => { if (e.target === modal) closeModal(); });
     </script>
-
 </body>
 </html>
