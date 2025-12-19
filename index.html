@@ -261,11 +261,11 @@
                 </p>
                 <div class="flex flex-col items-center">
                     <button onclick="openLevelModal('Contacto Final')" class="btn-shine brand-gold-bg text-white font-bold py-6 px-16 rounded-full text-lg uppercase tracking-widest mb-6">
-                        Hablar con un Asesor
+                        Contáctanos
                     </button>
                     <div class="flex items-center space-x-2 text-slate-500 text-sm">
                         <span class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span>
-                        <span>Asesores disponibles en línea</span>
+                        <span>Atención 24 horas</span>
                     </div>
                 </div>
             </div>
@@ -433,7 +433,7 @@
 
         function finalizeSelection(modality) {
             let phoneNumber = (selectedLevel === 'Básico' && modality === 'Virtual') ? '51983290098' : '51960158276';
-            const message = `Hola Nexus Chess, vengo de la web. \n*Interés:* ${currentContext}. \n*Nivel:* ${selectedLevel}. \n*Modalidad:* ${modality}. \nQuisiera más información.`;
+            const message = `Hola Nexus Chess, vengo de la web. \n*Nivel:* ${selectedLevel}. \n*Modalidad:* ${modality}. \nQuisiera más información.`;
             window.open(`https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`, '_blank');
             closeModal();
         }
