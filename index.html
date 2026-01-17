@@ -81,6 +81,22 @@
             backdrop-filter: blur(12px);
             -webkit-backdrop-filter: blur(12px);
         }
+        
+        /* Estilos para el scrollbar del modal de texto */
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 6px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: #f1f1f1;
+            border-radius: 4px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #c09b5a;
+            border-radius: 4px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+            background: #a0824b;
+        }
     </style>
 </head>
 <body class="bg-white text-slate-800">
@@ -98,7 +114,7 @@
                 <a href="#contacto" class="hover:text-[#c09b5a] transition-colors">CONTACTO</a>
             </nav>
             <button onclick="openLevelModal('Inscripción Rápida')" class="btn-shine bg-slate-900 text-white text-xs font-bold py-3 px-6 rounded-full hover:bg-slate-800 transition-all">
-                SOLICITAR CUPO
+                SOLICITAR VACANTE
             </button>
         </div>
     </header>
@@ -122,7 +138,7 @@
                     </a>
                 </div>
             </div>
-                    </section>
+        </section>
 
         <section id="beneficios" class="py-32 bg-white relative">
             <div class="container mx-auto px-6">
@@ -175,7 +191,7 @@
                     <p class="text-slate-500 mt-4">Lo que dice nuestra comunidad en Facebook</p>
                 </div>
                 <div class="grid md:grid-cols-3 gap-8">
-                    <!-- Testimonio 1 -->
+                    <!-- Testimonio 1: MARILÚ RAMOS -->
                     <div class="bg-white p-8 rounded-2xl shadow-sm border border-slate-100 relative group hover:-translate-y-1 transition-transform duration-300" data-aos="zoom-in" data-aos-delay="100">
                         <div class="absolute top-6 right-6 text-blue-600">
                             <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
@@ -183,23 +199,24 @@
                         <div class="flex text-yellow-400 mb-4">
                             <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
                         </div>
-                        <p class="text-slate-600 italic mb-6">"Mi hijo está matriculado y me da gusto que el profesor tenga un excelente trato y forma de enseñar a los peques. La paciencia sobretodo.."</p>
+                        <p class="text-slate-600 italic mb-6">"Mi hijo está matriculado y me da gusto que el profesor tenga un excelente trato y forma de enseñar a los peques. La paciencia sobretodo.
+"</p>
                         <div class="flex items-center justify-between border-t border-slate-50 pt-4 mt-4">
                             <div class="flex items-center space-x-3">
-                                <div class="w-10 h-10 rounded-full bg-slate-200 flex items-center justify-center text-xs font-bold text-slate-500">FR</div>
+                                <img src="https://scontent.ftru2-3.fna.fbcdn.net/v/t39.30808-1/470134393_122129417642461708_4482685536049008621_n.jpg?stp=c181.0.1086.1086a_dst-jpg_s100x100_tt6&_nc_cat=106&ccb=1-7&_nc_sid=e99d92&_nc_eui2=AeFCahdRMdAk9Qeity47zBRGXdh4iPUTa-pd2HiI9RNr6kgb7DHS-qtN4DEVb27VMzpvDDQ6Iq2Jkq2wDE4qwWHk&_nc_ohc=Z84TDCAwImsQ7kNvwF8e55R&_nc_oc=Adl4V7J6-yMyPnfbIheSfhREmRzBihoguYY2fupTAMqTaj6CF-c-O_qaerOj0U7H2Fserl9YjlPmnAlRfUY7Vx7I&_nc_zt=24&_nc_ht=scontent.ftru2-3.fna&_nc_gid=P0kmvpLnx4vRsJQs1lo3Zw&oh=00_AfrpsnWCP17d_-Mc98pMp_aKditAiQ3fAp1SmMT1ir7etQ&oe=69717C0E" alt="Marilú Ramos Mendoza" class="w-10 h-10 rounded-full object-cover">
+                                
                                 <div class="flex flex-col">
                                     <span class="font-bold text-sm text-slate-900">Marilú Ramos Mendoza</span>
-                                    <span class="text-xs text-slate-400">Hace 2 meses</span>
+                                    <span class="text-xs text-slate-400">Hace 1 semana</span>
                                 </div>
                             </div>
                             
-                            <!-- 1. PEGA AQUÍ EL LINK DEL POST DE ESTA FAMILIA (dentro de href="") -->
                             <a href="https://www.facebook.com/permalink.php?story_fbid=pfbid025UXTAyUjZB9qHtPVw54bEJBHXMMTKytGZ8sG9QGTCkULMytyHbSPMMbFgGVx6PTZl&id=61585228113082" target="_blank" class="text-xs text-blue-600 font-semibold hover:underline">Ver post</a>
                         
                         </div>
                     </div>
 
-                    <!-- Testimonio 2 -->
+                    <!-- Testimonio 2: CARLOS M. -->
                     <div class="bg-white p-8 rounded-2xl shadow-sm border border-slate-100 relative group hover:-translate-y-1 transition-transform duration-300" data-aos="zoom-in" data-aos-delay="200">
                         <div class="absolute top-6 right-6 text-blue-600">
                             <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
@@ -210,20 +227,21 @@
                         <p class="text-slate-600 italic mb-6">"Los profesores tienen una paciencia de oro. Mi hija empezó desde cero y ahora ya compite en torneos locales."</p>
                         <div class="flex items-center justify-between border-t border-slate-50 pt-4 mt-4">
                             <div class="flex items-center space-x-3">
-                                <div class="w-10 h-10 rounded-full bg-slate-200 flex items-center justify-center text-xs font-bold text-slate-500">CM</div>
+                                <!-- FOTO DE CARLOS (Placeholder) -->
+                                <img src="https://images.unsplash.com/photo-1599566150163-29194dcaad36?q=80&w=100&auto=format&fit=crop" alt="Carlos M." class="w-10 h-10 rounded-full object-cover">
+                                
                                 <div class="flex flex-col">
                                     <span class="font-bold text-sm text-slate-900">Carlos M.</span>
                                     <span class="text-xs text-slate-400">Hace 1 mes</span>
                                 </div>
                             </div>
 
-                            <!-- 2. PEGA AQUÍ EL LINK DEL POST DE CARLOS (dentro de href="") -->
                             <a href="https://www.facebook.com/permalink.php?story_fbid=pfbid025UXTAyUjZB9qHtPVw54bEJBHXMMTKytGZ8sG9QGTCkULMytyHbSPMMbFgGVx6PTZl&id=61585228113082" target="_blank" class="text-xs text-blue-600 font-semibold hover:underline">Ver post</a>
 
                         </div>
                     </div>
 
-                    <!-- Testimonio 3 -->
+                    <!-- Testimonio 3: ANA LUCÍA P. -->
                     <div class="bg-white p-8 rounded-2xl shadow-sm border border-slate-100 relative group hover:-translate-y-1 transition-transform duration-300" data-aos="zoom-in" data-aos-delay="300">
                         <div class="absolute top-6 right-6 text-blue-600">
                             <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
@@ -231,17 +249,18 @@
                         <div class="flex text-yellow-400 mb-4">
                             <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
                         </div>
-                        <p class="text-slate-600 italic mb-6">"Nexus no es solo una clase de ajedrez, es un club donde mi hijo se siente parte de algo grande."</p>
+                        <p class="text-slate-600 italic mb-6">"Nexus no es solo una clase de ajedrez, es un academmia de ajedrez donde mi hijo se siente parte de algo grande."</p>
                         <div class="flex items-center justify-between border-t border-slate-50 pt-4 mt-4">
                             <div class="flex items-center space-x-3">
-                                <div class="w-10 h-10 rounded-full bg-slate-200 flex items-center justify-center text-xs font-bold text-slate-500">AP</div>
+                                <!-- FOTO DE ANA LUCÍA (Placeholder) -->
+                                <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=100&auto=format&fit=crop" alt="Ana Lucía P." class="w-10 h-10 rounded-full object-cover">
+                                
                                 <div class="flex flex-col">
                                     <span class="font-bold text-sm text-slate-900">Ana Lucía P.</span>
                                     <span class="text-xs text-slate-400">Hace 3 semanas</span>
                                 </div>
                             </div>
 
-                            <!-- 3. PEGA AQUÍ EL LINK DEL POST DE ANA (dentro de href="") -->
                             <a href="https://www.facebook.com/permalink.php?story_fbid=pfbid025UXTAyUjZB9qHtPVw54bEJBHXMMTKytGZ8sG9QGTCkULMytyHbSPMMbFgGVx6PTZl&id=61585228113082" target="_blank" class="text-xs text-blue-600 font-semibold hover:underline">Ver post</a>
 
                         </div>
@@ -358,10 +377,10 @@
             </div>
         </div>
         <div class="container mx-auto px-6 mt-16 pt-8 border-t border-slate-100 flex flex-col md:flex-row justify-between items-center text-xs text-slate-400">
-            <p>© 2025 Nexus Chess. Todos los derechos reservados.</p>
+            <p>© 2026 Nexus Chess. Todos los derechos reservados.</p>
             <div class="flex space-x-6 mt-4 md:mt-0">
-                <a href="#">Privacidad</a>
-                <a href="#">Términos</a>
+                <button onclick="openLegalModal('privacy')" class="hover:text-[#c09b5a] transition-colors">Privacidad</button>
+                <button onclick="openLegalModal('terms')" class="hover:text-[#c09b5a] transition-colors">Términos</button>
             </div>
         </div>
     </footer>
@@ -372,7 +391,8 @@
         </svg>
     </a>
 
-    <div id="levelModal" class="fixed inset-0 z-[60] hidden flex items-center justify-center modal-overlay opacity-0 transition-opacity duration-300">
+    <!-- Modal de Selección de Nivel (Existente) -->
+    <div id="levelModal" class="fixed inset-0 z-[60] hidden flex items-center justify-center modal-overlay bg-black/50 backdrop-blur-sm opacity-0 transition-opacity duration-300">
         <div class="bg-white rounded-3xl shadow-2xl max-w-md w-full mx-4 overflow-hidden transform scale-95 transition-all duration-300" id="modalContent">
             <div class="brand-gold-bg px-8 py-6 flex justify-between items-center">
                 <h3 id="modalTitle" class="text-white text-xl font-bold font-serif italic">Tu Camino al Éxito</h3>
@@ -432,6 +452,24 @@
         </div>
     </div>
 
+    <!-- Nuevo Modal Legal (Privacidad y Términos) -->
+    <div id="legalModal" class="fixed inset-0 z-[70] hidden flex items-center justify-center modal-overlay bg-black/60 backdrop-blur-sm opacity-0 transition-opacity duration-300">
+        <div class="bg-white rounded-3xl shadow-2xl max-w-2xl w-full mx-4 overflow-hidden transform scale-95 transition-all duration-300 flex flex-col max-h-[85vh]" id="legalModalContent">
+            <div class="bg-slate-900 px-8 py-5 flex justify-between items-center shrink-0">
+                <h3 id="legalModalTitle" class="text-white text-lg font-bold font-serif tracking-wide">Información Legal</h3>
+                <button onclick="closeLegalModal()" class="text-white/70 hover:text-white transition-colors bg-white/10 hover:bg-white/20 rounded-full p-1">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+                </button>
+            </div>
+            <div id="legalModalBody" class="p-8 overflow-y-auto custom-scrollbar text-slate-600 text-sm leading-relaxed space-y-4">
+                <!-- El contenido se inyecta vía JS -->
+            </div>
+            <div class="px-8 py-4 bg-slate-50 border-t border-slate-100 flex justify-end shrink-0">
+                <button onclick="closeLegalModal()" class="text-xs font-bold text-slate-500 hover:text-slate-800 uppercase tracking-wider">Cerrar</button>
+            </div>
+        </div>
+    </div>
+
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
         AOS.init({
@@ -440,7 +478,7 @@
             easing: 'ease-out-quad'
         });
 
-        // Tu lógica de JS para el modal se mantiene intacta
+        // --- LÓGICA DEL MODAL DE NIVEL (Existente) ---
         let modal = document.getElementById('levelModal');
         let modalContent = document.getElementById('modalContent');
         let stepLevel = document.getElementById('stepLevel');
@@ -489,6 +527,69 @@
         }
 
         modal.addEventListener('click', (e) => { if (e.target === modal) closeModal(); });
+
+
+        // --- LÓGICA DEL MODAL LEGAL (Nuevo) ---
+        const legalModal = document.getElementById('legalModal');
+        const legalModalContent = document.getElementById('legalModalContent');
+        const legalModalTitle = document.getElementById('legalModalTitle');
+        const legalModalBody = document.getElementById('legalModalBody');
+
+        const legalContent = {
+            privacy: {
+                title: "Política de Privacidad y Protección de Datos",
+                body: `
+                    <p class="mb-4"><strong class="text-slate-800">1. Compromiso de Privacidad:</strong> En Nexus Chess, valoramos la privacidad de nuestros alumnos tanto como valoramos la integridad en el tablero. Esta política detalla cómo manejamos la información personal recopilada.</p>
+                    
+                    <p class="mb-4"><strong class="text-slate-800">2. Información de Menores:</strong> Dado que formamos a niños y jóvenes, somos extremadamente rigurosos con sus datos. No compartimos nombres, direcciones ni contactos de menores con terceros bajo ninguna circunstancia sin el consentimiento explícito y por escrito de los padres o tutores.</p>
+                    
+                    <p class="mb-4"><strong class="text-slate-800">3. Uso de Imágenes:</strong> Durante torneos y clases, ocasionalmente capturamos fotografías para celebrar los logros de nuestros estudiantes en nuestras redes sociales (como se muestra en la sección de testimonios). Si usted prefiere que la imagen de su hijo no sea utilizada, puede notificarnos al momento de la matrícula y respetaremos absolutamente su decisión.</p>
+                    
+                    <p class="mb-4"><strong class="text-slate-800">4. Partidas y Registros:</strong> Las partidas jugadas en torneos internos pueden ser registradas con fines pedagógicos. Estas partidas (la notación algebraica) son propiedad intelectual compartida entre el alumno y la academia para fines de estudio.</p>
+                `
+            },
+            terms: {
+                title: "Términos y Condiciones del Servicio",
+                body: `
+                    <p class="mb-4"><strong class="text-slate-800">1. Código de Conducta (Fair Play):</strong> El ajedrez es un deporte de caballeros y damas. Se espera que todos los alumnos mantengan un comportamiento respetuoso hacia instructores y compañeros. El uso de asistencia por computadora (motores de ajedrez) durante partidas de práctica online está estrictamente prohibido y resultará en la suspensión.</p>
+                    
+                    <p class="mb-4"><strong class="text-slate-800">2. Pagos y Matrícula:</strong> Los pagos de las mensualidades deben realizarse por adelantado dentro de los primeros 5 días de cada ciclo. Nexus Chess se reserva el derecho de reprogramar clases si el pago no ha sido verificado.</p>
+                    
+                    <p class="mb-4"><strong class="text-slate-800">3. Asistencia y Recuperaciones:</strong> 
+                    <ul class="list-disc ml-5 mb-2">
+                        <li><strong>Clases Grupales:</strong> Por la naturaleza del formato, las clases grupales perdidas por inasistencia del alumno no son recuperables.</li>
+                        <li><strong>Clases Particulares (1 a 1):</strong> Se pueden reprogramar con un aviso mínimo de 24 horas de antelación. Cancelaciones con menos tiempo se considerarán como clase impartida.</li>
+                    </ul>
+                    </p>
+                    
+                    <p class="mb-4"><strong class="text-slate-800">4. Propiedad Intelectual:</strong> Los materiales de estudio, ejercicios y guías entregados por Nexus Chess son para uso exclusivo del estudiante matriculado y no deben ser distribuidos públicamente.</p>
+                `
+            }
+        };
+
+        function openLegalModal(type) {
+            const content = legalContent[type];
+            if (content) {
+                legalModalTitle.textContent = content.title;
+                legalModalBody.innerHTML = content.body;
+                
+                legalModal.classList.remove('hidden');
+                setTimeout(() => {
+                    legalModal.classList.remove('opacity-0');
+                    legalModalContent.classList.remove('scale-95');
+                    legalModalContent.classList.add('scale-100');
+                }, 10);
+            }
+        }
+
+        function closeLegalModal() {
+            legalModal.classList.add('opacity-0');
+            legalModalContent.classList.remove('scale-100');
+            legalModalContent.classList.add('scale-95');
+            setTimeout(() => legalModal.classList.add('hidden'), 300);
+        }
+
+        legalModal.addEventListener('click', (e) => { if (e.target === legalModal) closeLegalModal(); });
     </script>
 </body>
 </html>
